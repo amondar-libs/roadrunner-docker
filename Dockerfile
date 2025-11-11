@@ -1,4 +1,4 @@
-FROM ghcr.io/roadrunner-server/roadrunner:2025.1.4 as RoadRunner
+FROM ghcr.io/roadrunner-server/roadrunner:2025.1.4 as roadrunner
 
 FROM php:8.4-alpine3.21
 
@@ -15,5 +15,7 @@ RUN install-php-extensions \
     json redis rdkafka iconv
 
 RUN IPE_GD_WITH=avif,jpeg,webp,freetype,heif install-php-extensions gd
+
+COPY --from=roadrunner /usr/bin/rr /usr/local/bin/rr
 
 EXPOSE 8080 80
