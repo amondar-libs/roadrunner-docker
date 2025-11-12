@@ -1,6 +1,6 @@
 FROM ghcr.io/roadrunner-server/roadrunner:2025.1.4 AS roadrunner
 
-FROM php:8.4-alpine3.21
+FROM php:8.4-alpine3.22
 
 RUN apk update && \
     apk add --no-cache bash htop grep nano coreutils curl git
