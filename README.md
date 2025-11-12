@@ -7,7 +7,7 @@ Overview
 
 What’s included and versions
 
-- Base OS: Alpine Linux 3.21 (from docker.io/library/php:8.4-alpine3.21)
+- Base OS: Alpine Linux 3.21 (from docker.io/library/php:8.4-alpine3.22)
 - PHP: 8.4 (CLI, from the php:8.4-alpine3.21 base image)
 - RoadRunner build stage: ghcr.io/roadrunner-server/roadrunner:2025.1.4 (build stage only; rr is not included in the
   final image unless explicitly copied)
@@ -44,7 +44,7 @@ Installed via install-php-extensions in two steps:
 
 Notes on versions and reproducibility
 
-- The PHP base image (8.4-alpine3.21) is pinned, ensuring consistent PHP/OS versions. The RoadRunner build stage (
+- The PHP base image (8.4-alpine3.22) is pinned, ensuring consistent PHP/OS versions. The RoadRunner build stage (
   2025.1.4) is also pinned.
 - The install-php-extensions script is fetched as "latest" at build time; the exact script version may change over time.
 - Most PHP extensions are installed at the latest compatible versions (from Alpine packages or PECL) resolved during
