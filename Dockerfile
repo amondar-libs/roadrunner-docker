@@ -30,7 +30,6 @@ RUN apk update && \
     && chmod -R 777 /var/run/rr \
     # make clean up \
     && docker-php-source delete \
-    && apk del .build-deps \
     && rm -R /tmp/pear
 
 
