@@ -23,7 +23,7 @@ RUN apk update && \
             --gecos "" \
             "appuser" \
     && mkdir /etc/supercronic \
-    && echo '*/1 * * * * php /var/www/project/artisan schedule:run' > /etc/supercronic/project \
+    && echo '* * * * * php /var/www/project/artisan schedule:run > /dev/null 2>&1' > /etc/supercronic/project \
     # create directory for application sources and roadrunner unix socket \
     && mkdir -p /var/www/project /var/run/rr \
     && chown -R appuser:appuser /var/www/project /var/run/rr \
