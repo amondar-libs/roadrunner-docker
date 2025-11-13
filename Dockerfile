@@ -29,7 +29,7 @@ RUN apk update && \
     && chown -R appuser:appuser /var/www/project /var/run/rr \
     && chmod -R 777 /var/run/rr \
     # make clean up \
-    && docker-php-source delete \
+    && docker-php-source delete
 
 
 COPY --from=roadrunner /usr/bin/rr /usr/bin/rr
