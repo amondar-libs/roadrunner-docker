@@ -32,7 +32,7 @@ RUN apk update && \
     && docker-php-source delete \
 
 
-COPY --from=roadrunner /usr/bin/rr /usr/local/bin/rr
+COPY --from=roadrunner /usr/bin/rr /usr/bin/rr
 
 # use an unprivileged user by default
 USER appuser:appuser
