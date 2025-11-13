@@ -7,11 +7,11 @@ ADD --chmod=0755 https://github.com/mlocati/docker-php-extension-installer/relea
 RUN apk update && \
     apk add --no-cache bash htop grep nano coreutils curl git supercronic \
     && install-php-extensions \
-    @composer opcache mbstring zip \
+    @composer zip \
     intl sockets protobuf pcntl \
     pdo_dblib pdo_mysql pdo_pgsql \
-    imagick bcmath fileinfo \
-    json redis rdkafka iconv \
+    imagick bcmath  \
+    redis rdkafka \
     && IPE_GD_WITH=avif,jpeg,webp,freetype,heif install-php-extensions gd \
     # create unprivileged user \
     && adduser \

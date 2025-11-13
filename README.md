@@ -22,8 +22,8 @@ Installed via install-php-extensions in two steps:
 
 1) Core set
     - @composer (Composer latest at build time)
-    - opcache
-    - mbstring
+    - opcache (default for php)
+    - mbstring (default for php)
     - zip
     - intl
     - sockets
@@ -34,11 +34,11 @@ Installed via install-php-extensions in two steps:
     - pdo_pgsql
     - imagick
     - bcmath
-    - fileinfo
-    - json
+    - fileinfo (default for php)
+    - json (default for php)
     - redis
     - rdkafka
-    - iconv
+    - iconv (default for php)
 
 2) GD with specific features
     - gd built with: avif, jpeg, webp, freetype, heif
