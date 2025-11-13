@@ -30,7 +30,6 @@ RUN apk update && \
     && chmod -R 777 /var/run/rr \
     # make clean up \
     && docker-php-source delete \
-    && rm -R /tmp/pear
 
 
 COPY --from=roadrunner /usr/bin/rr /usr/local/bin/rr
