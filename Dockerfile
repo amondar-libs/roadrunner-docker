@@ -5,7 +5,7 @@ FROM php:8.4-alpine3.22
 ADD --chmod=0755 https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 
 RUN apk update && \
-    apk add --no-cache bash htop grep nano coreutils curl git supercronic \
+    apk add --no-cache bash htop grep nano coreutils curl git supercronic make \
     && install-php-extensions \
     @composer zip \
     intl sockets protobuf pcntl \
