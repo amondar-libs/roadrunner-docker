@@ -2,19 +2,18 @@ RoadRunner PHP runtime Docker image
 
 Overview
 
-- This repository builds a PHP 8.4 image on Alpine Linux 3.21 prepared for running RoadRunner-based apps. It installs a
+- This repository builds a PHP 8.5 image on Alpine Linux 3.23 prepared for running RoadRunner-based apps. It installs a
   curated set of PHP extensions commonly required for high‑performance HTTP workers and queues.
 
 What’s included and versions
 
-- Base OS: Alpine Linux 3.21 (from docker.io/library/php:8.4-alpine3.22)
-- PHP: 8.4 (CLI, from the php:8.4-alpine3.21 base image)
-- RoadRunner build stage: ghcr.io/roadrunner-server/roadrunner:2025.1.4 (build stage only; rr is not included in the
-  final image unless explicitly copied)
+- Base OS: Alpine Linux 3.23 (from docker.io/library/php:8.5-alpine3.23)
+- PHP: 8.5 (CLI, from the php:8.5-alpine3.23 base image)
+- RoadRunner: ghcr.io/roadrunner-server/roadrunner:2025.1.6 (rr binary is included in the final image)
 - PHP extension installer: install-php-extensions (downloaded as "latest" at build time
   from https://github.com/mlocati/docker-php-extension-installer)
 - Exposed ports: 8080, 80
-- Base utilities installed: bash, htop, grep, nano, coreutils, curl, git
+- Base utilities installed: bash, htop, grep, nano, coreutils, curl, git, supercronic, make
 - `appuser` user created with UID 10001. Fully unprivileged.
 
 PHP extensions installed
@@ -45,8 +44,8 @@ Installed via install-php-extensions in two steps:
 
 Notes on versions and reproducibility
 
-- The PHP base image (8.4-alpine3.22) is pinned, ensuring consistent PHP/OS versions. The RoadRunner build stage (
-  2025.1.4) is also pinned.
+- The PHP base image (8.5-alpine3.23) is pinned, ensuring consistent PHP/OS versions. The RoadRunner build stage (
+  2025.1.6) is also pinned.
 - The install-php-extensions script is fetched as "latest" at build time; the exact script version may change over time.
 - Most PHP extensions are installed at the latest compatible versions (from Alpine packages or PECL) resolved during
   build.
@@ -62,8 +61,8 @@ Run (example)
 File reference
 
 - Dockerfile stages
-    1) FROM ghcr.io/roadrunner-server/roadrunner:2025.1.4 AS RoadRunner — pulls the RoadRunner binary/tooling
-    2) FROM php:8.4-alpine3.21 — base runtime (Alpine 3.21 + PHP 8.4)
+    1) FROM ghcr.io/roadrunner-server/roadrunner:2025.1.6 AS RoadRunner — pulls the RoadRunner binary/tooling
+    2) FROM php:8.5-alpine3.23 — base runtime (Alpine 3.23 + PHP 8.5)
 - The install-php-extensions script is downloaded and used to install the listed extensions.
 - Ports 8080 and 80 are exposed for typical HTTP usage with RoadRunner.
 
