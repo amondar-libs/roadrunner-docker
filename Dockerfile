@@ -1,4 +1,4 @@
-FROM ghcr.io/roadrunner-server/roadrunner:2025.1.5 AS roadrunner
+FROM ghcr.io/roadrunner-server/roadrunner:2025.1.6 AS roadrunner
 
 FROM php:8.5-alpine3.23
 
