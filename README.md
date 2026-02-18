@@ -13,7 +13,7 @@ What’s included and versions
 - PHP extension installer: install-php-extensions (downloaded as "latest" at build time
   from https://github.com/mlocati/docker-php-extension-installer)
 - Exposed ports: 8080, 80
-- Base utilities installed: bash, htop, grep, nano, coreutils, curl, git, supercronic, make
+- Base utilities installed: bash, htop, grep, nano, coreutils, curl, git, supercronic, make, nodejs, pnpm
 - `appuser` user created with UID 10001. Fully unprivileged.
 
 PHP extensions installed

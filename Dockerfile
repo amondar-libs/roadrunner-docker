@@ -1,11 +1,11 @@
-FROM ghcr.io/roadrunner-server/roadrunner:2025.1.6 AS roadrunner
+FROM ghcr.io/roadrunner-server/roadrunner:2025.1.7 AS roadrunner
 
 FROM php:8.5-alpine3.23
 
 ADD --chmod=0755 https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 
 RUN apk update && \
-    apk add --no-cache bash htop grep nano coreutils curl git supercronic make \
+    apk add --no-cache bash htop grep nano coreutils curl git supercronic make nodejs pnpm \
     && install-php-extensions \
     @composer zip \
     intl sockets protobuf pcntl \
