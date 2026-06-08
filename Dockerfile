@@ -1,4 +1,4 @@
-FROM ghcr.io/roadrunner-server/roadrunner:2025.1.7 AS roadrunner
+FROM ghcr.io/roadrunner-server/roadrunner:2025.1.14 AS roadrunner
 
 FROM php:8.5-alpine3.23
 
@@ -7,11 +7,10 @@ ADD --chmod=0755 https://github.com/mlocati/docker-php-extension-installer/relea
 RUN apk update && \
     apk add --no-cache bash htop grep nano coreutils curl git supercronic make nodejs pnpm \
     && install-php-extensions \
-    @composer zip \
-    intl sockets protobuf pcntl \
-    pdo_dblib pdo_mysql pdo_pgsql \
-    imagick bcmath  \
-    redis rdkafka \
+        @composer \
+        bcmath exif intl pcntl sockets zip \
+        pdo_dblib pdo_mysql pdo_pgsql \
+        imagick protobuf redis rdkafka \
     && IPE_GD_WITH=avif,jpeg,webp,freetype,heif install-php-extensions gd \
     # create unprivileged user \
     && adduser \
@@ -35,7 +34,8 @@ RUN apk update && \
 COPY --from=roadrunner /usr/bin/rr /usr/bin/rr
 
 # use an unprivileged user by default
-USER appuser:appuser
+
+
 
 EXPOSE 8080 80
 

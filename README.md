@@ -38,6 +38,7 @@ Installed via install-php-extensions in two steps:
     - redis
     - rdkafka
     - iconv (default for php)
+    - exif (for Spatie media library)
 
 2) GD with specific features
     - gd built with: avif, jpeg, webp, freetype, heif
@@ -45,7 +46,7 @@ Installed via install-php-extensions in two steps:
 Notes on versions and reproducibility
 
 - The PHP base image (8.5-alpine3.23) is pinned, ensuring consistent PHP/OS versions. The RoadRunner build stage (
-  2025.1.6) is also pinned.
+  2025.1.14) is also pinned.
 - The install-php-extensions script is fetched as "latest" at build time; the exact script version may change over time.
 - Most PHP extensions are installed at the latest compatible versions (from Alpine packages or PECL) resolved during
   build.
